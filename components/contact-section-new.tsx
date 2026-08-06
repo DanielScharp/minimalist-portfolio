@@ -4,21 +4,54 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react'
 import { useState } from 'react'
 import { contactData } from '@/lib/portfolio-data'
 
+const initialFormData = {
+  name: '',
+  email: '',
+  message: '',
+}
+
 interface ContactSectionProps {
   data?: typeof contactData
 }
 
 export function ContactSection({ data = contactData }: ContactSectionProps) {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  })
+  const [formData, setFormData] = useState(initialFormData)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [statusMessage, setStatusMessage] = useState<string | null>(null)
+  const [statusType, setStatusType] = useState<'success' | 'error' | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log('Form submitted:', formData)
+    setIsSubmitting(true)
+    setStatusMessage(null)
+    setStatusType(null)
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Erro ao enviar a mensagem.')
+      }
+
+      setStatusType('success')
+      setStatusMessage(result.message || 'Mensagem enviada com sucesso!')
+      setFormData(initialFormData)
+    } catch (error) {
+      setStatusType('error')
+      setStatusMessage(
+        error instanceof Error ? error.message : 'Não foi possível enviar a mensagem.'
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -130,13 +163,28 @@ export function ContactSection({ data = contactData }: ContactSectionProps) {
           />
         </div>
 
-        <button
-          type="submit"
-          className="flex items-center justify-center gap-2 cursor-pointer w-full md:w-auto px-6 md:px-8 py-3 md:py-3.5 bg-accent text-accent-foreground rounded-xl font-medium hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-0.5 transition-all text-sm md:text-base"
-        >
-          <Send className="w-4 h-4" />
-          Enviar mensagem
-        </button>
+        <div className="space-y-3">
+          {statusMessage && (
+            <div
+              className={`rounded-xl border px-4 py-3 text-sm ${
+                statusType === 'success'
+                  ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400'
+                  : 'border-red-500/30 bg-red-500/10 text-red-700 dark:text-red-400'
+              }`}
+            >
+              {statusMessage}
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="flex items-center justify-center gap-2 cursor-pointer w-full md:w-auto px-6 md:px-8 py-3 md:py-3.5 bg-accent text-accent-foreground rounded-xl font-medium hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-0.5 transition-all text-sm md:text-base disabled:opacity-70 disabled:cursor-not-allowed"
+          >
+            <Send className="w-4 h-4" />
+            {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
+          </button>
+        </div>
       </form>
     </div>
   )
