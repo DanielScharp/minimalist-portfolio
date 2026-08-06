@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ProfileSidebar } from '@/components/profile-sidebar'
 import { AboutSection } from '@/components/about-section'
 import { ResumeSection } from '@/components/resume-section'
@@ -19,6 +19,17 @@ import {
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('sobre')
+
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '')
+    const params = new URLSearchParams(window.location.search)
+    const sectionParam = params.get('section')
+
+    const targetSection = hash || sectionParam
+    if (targetSection && ['sobre', 'resumo', 'portfólio', 'blog', 'contato'].includes(targetSection)) {
+      setActiveSection(targetSection)
+    }
+  }, [])
 
   return (
     <div className="min-h-screen bg-background p-3 sm:p-4 md:p-6 lg:p-12">
