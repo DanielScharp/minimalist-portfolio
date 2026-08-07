@@ -63,15 +63,7 @@ export function ProfileSidebar({ data = profileData }: ProfileSidebarProps) {
           </div>
         </div>
 
-        <div className="flex items-start gap-3">
-          <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
-            <Calendar className="w-5 h-5 text-accent" />
-          </div>
-          <div className="flex-1">
-            <p className="text-xs text-muted-foreground uppercase mb-1">Nascimento</p>
-            <p className="text-sm text-foreground">{data.birthday}</p>
-          </div>
-        </div>
+
 
         <div className="flex items-start gap-3">
           <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">

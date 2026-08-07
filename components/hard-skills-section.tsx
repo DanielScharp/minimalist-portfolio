@@ -53,9 +53,9 @@ export function HardSkillsSection({ skills }: HardSkillsProps) {
     <div className="p-4 md:p-6 bg-secondary/50 rounded-xl md:rounded-2xl border border-border">
       <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6">Technical Skills</h3>
       <div className="space-y-6">
-        <SkillCategory title="Languages" icon={Code2} skills={skills.languages} />
-        <SkillCategory title="Frameworks & Libraries" icon={Boxes} skills={skills.frameworks} />
-        <SkillCategory title="Tools & Platforms" icon={Wrench} skills={skills.tools} />
+        <SkillCategory title="Linguagens" icon={Code2} skills={skills.languages} />
+        <SkillCategory title="Frameworks & Bibliotecas" icon={Boxes} skills={skills.frameworks} />
+        <SkillCategory title="Ferramentas & Plataformas" icon={Wrench} skills={skills.tools} />
       </div>
     </div>
   )

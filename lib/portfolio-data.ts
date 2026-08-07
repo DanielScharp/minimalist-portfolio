@@ -2,9 +2,9 @@ export const profileData = {
   name: "Daniel Scharp",
   title: "Full-Stack Developer",
   avatar: "https://www.github.com/Danielscharp.png",
-  email: "daniel.scharp@hotmail.com",
+  email: "contato@danielscharp.com.br",
   phone: "+55 (11) 9 8188-9118",
-  birthday: "30/08/2002",
+  birthday: "24 Anos",
   location: "Barra funda, SP",
   social: {
     github: "https://github.com/DanielScharp/",
@@ -160,12 +160,6 @@ export const resumeData = {
       period: "Dez 2022 — Jun 2026",
       description:
         "Atuação no suporte e manutenção de sistemas internos, realizando correções de bugs, implementação de melhorias e atendimento às demandas dos usuários. Participação em projetos de migração de aplicações legadas para tecnologias modernas, contribuindo no desenvolvimento de novas funcionalidades sob orientação da equipe. Colaboração no desenvolvimento de sistemas web, integração com banco de dados e execução de testes e validações, adquirindo experiência em boas práticas de programação, manutenção incremental e trabalho em equipe.",
-    },
-    {
-      title: "Office Boy – Freitas Leiloeiro Oficial",
-      period: "Fev 2022 — Dez 2022",
-      description:
-        "Atuação em rotinas administrativas e operacionais, prestando suporte aos diferentes setores da empresa no controle de documentos, organização de processos internos e execução de atividades de apoio logístico. A experiência contribuiu para o desenvolvimento de habilidades de organização, responsabilidade, comunicação e entendimento dos fluxos operacionais da empresa.",
     },
     {
       title: "Desenvolvedor Full-Stack – Projetos Pessoais",
@@ -405,7 +399,7 @@ export default async function BlogPostPage({ params }: Props) {
 }
 
 export const contactData = {
-  email: "daniel.scharp@hotmail.com",
+  email: "contato@danielscharp.com.br",
   phone: "+55 (11) 9 8188-9118",
   location: "Barra funda, SP",
   mapEmbedUrl:
