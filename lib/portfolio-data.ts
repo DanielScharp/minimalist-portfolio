@@ -9,6 +9,7 @@ export const profileData = {
   social: {
     github: "https://github.com/DanielScharp/",
     instagram: "https://www.instagram.com/danielscharp/",
+    linkedin: "https://www.linkedin.com/in/daniel-scharp/",
   },
 }
 

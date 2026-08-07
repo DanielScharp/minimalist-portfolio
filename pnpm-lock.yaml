@@ -143,6 +143,9 @@ dependencies:
   react-hook-form:
     specifier: ^7.60.0
     version: 7.84.0(react@19.2.0)
+  react-icons:
+    specifier: ^5.7.0
+    version: 5.7.0(react@19.2.0)
   react-resizable-panels:
     specifier: ^2.1.7
     version: 2.1.9(react-dom@19.2.0)(react@19.2.0)
@@ -2626,6 +2629,14 @@ packages:
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
+    dependencies:
+      react: 19.2.0
+    dev: false
+
+  /react-icons@5.7.0(react@19.2.0):
+    resolution: {integrity: sha512-LBLy340Rzqy6+/yVhZKT3B/QpP1BZaesGqasf09HPOBzRarcDIFH0WwXlXQfE7q7ipxK4MSiC5DIBWURCny6fw==}
+    peerDependencies:
+      react: '*'
     dependencies:
       react: 19.2.0
     dev: false

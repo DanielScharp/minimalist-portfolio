@@ -1,5 +1,5 @@
-import { Mail, Phone, Calendar, MapPin } from 'lucide-react'
-import { Github, Instagram } from 'lucide-react'
+import { Mail, Phone, Calendar, MapPin, Github, Instagram  } from 'lucide-react'
+import { PiLinkedinLogoBold } from "react-icons/pi";
 import { profileData } from '@/lib/portfolio-data'
 
 interface ProfileSidebarProps {
@@ -95,6 +95,15 @@ export function ProfileSidebar({ data = profileData }: ProfileSidebarProps) {
           aria-label="Instagram"
         >
           <Instagram className="w-5 h-5" />
+        </a>
+        <a
+          href={data.social.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 rounded-lg bg-secondary hover:bg-accent hover:text-accent-foreground transition-colors flex items-center justify-center"
+          aria-label="LinkedIn"
+        >
+          <PiLinkedinLogoBold className="w-5 h-5" />
         </a>
       </div>
     </aside>
