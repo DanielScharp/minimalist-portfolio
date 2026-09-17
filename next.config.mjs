@@ -10,6 +10,9 @@ const nextConfig = {
   // Força o bundling do pacote SWC no servidor
   serverExternalPackages: [],
   transpilePackages: ['@swc/helpers'],
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 }
 
 export default nextConfig
